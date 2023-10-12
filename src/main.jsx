@@ -6,6 +6,11 @@ import "./index.css";
 import { store } from "./app/store.js";
 import { Provider } from "react-redux";
 
+import { fetchUsers } from "./features/users/usersSlice.js";
+
+// we load the users when the app starts
+store.dispatch(fetchUsers());
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
