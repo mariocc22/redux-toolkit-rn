@@ -1,6 +1,7 @@
 import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 import { sub } from "date-fns";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -34,7 +35,7 @@ const postsSlice = createSlice({
       prepare(title, content, userId) {
         return {
           payload: {
-            id: nanoid(),
+            id: uuidv4(),
             title,
             content,
             date: new Date().toISOString(),
