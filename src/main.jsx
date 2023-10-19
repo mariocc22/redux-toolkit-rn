@@ -8,11 +8,17 @@ import { Provider } from "react-redux";
 
 import { fetchUsers } from "./features/users/usersSlice.js";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 // we load the users when the app starts
 store.dispatch(fetchUsers());
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/*" element={<App />} />
+      </Routes>
+    </Router>
   </Provider>
 );
